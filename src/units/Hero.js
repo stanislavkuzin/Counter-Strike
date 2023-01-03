@@ -1,34 +1,43 @@
 class Hero extends Unit {
     constructor(level) {
         super();
-        this.unit.classList.add('hero');
-        this.weapon = this.createWeapon(level);
+        this.weaponArr = [];
+        this.weaponList = this.createWeapon();
+        this.unit = this.renderHero();
     }
-    createWeapon(level) {
-        let weaponArr = [];
-        weaponArr.push(new Weapon(level)); // тест
-        weaponArr.push(new Weapon(level)); // тест
-        weaponArr.push(new Weapon(level)); // тест
-        return weaponArr;
+
+    createWeapon() {
+        const allWeapon = document.createElement('div');
+        allWeapon.classList.add('weaponList');
+        this.weaponArr = [];
+        for (let i = 0; i < 3; i += 1) {
+            this.weaponArr.push(new Weapon(i));
+            allWeapon.append(this.weaponArr[i].weaponOption);
+        }
+        return allWeapon;
+    }
+    renderHero() {
+        this.unit.classList.add('hero');
+        return this.unit;
     }
     // пока не работает
-    // chengeWeapon(event) {
-    //     switch (event) {
-    //         case 1: {
-    //             this.weapon[1];
-    //             break;
-    //         }
-    //         case 2: {
-    //             this.weapon[2];
-    //             break;
-    //         }
-    //         case 3: {
-    //             this.weapon[3];
-    //             break;
-    //         }
-    //         default: {
-    //             return;
-    //         }
-    //     }
-    // }
+    changeWeapon(event) {
+        switch (event) {
+            case 1: {
+                this.weapon[1];
+                break;
+            }
+            case 2: {
+                this.weapon[2];
+                break;
+            }
+            case 3: {
+                this.weapon[3];
+                break;
+            }
+            default: {
+                return;
+            }
+        }
+    }
 }

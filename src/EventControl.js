@@ -1,4 +1,12 @@
 class EventConrtol {
-// один обработчик событий на все клики или нажатия. 
-// /идея classa в том что мы вешаем eventListtener => body и объект этого класса обрабатывает все события;
+  constructor(observer) {
+    this.observer = observer;
+  }
+  getEvent = (event) => {
+    if (event === undefined) {
+      return;
+    }
+    event.stopPropagation();
+      this.observer.broadcast(event);
+  }
 }
