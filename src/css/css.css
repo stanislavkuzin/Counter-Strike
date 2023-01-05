@@ -84,6 +84,8 @@ img {
 }
 
 p {
+    display: block;
+    width: 100px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: larger;
 }
@@ -116,4 +118,7 @@ li {
 .selecteedWeapon {
     filter: grayscale(0);
     animation: forwards;
+}
+#svg{
+    z-index: 2000;
 }

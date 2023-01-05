@@ -24,7 +24,6 @@ class SceneFabric {
         // добавляет enemy  на страницу 
         this.enemis.forEach((enemy) => {
             enemy.appendTo(this.scene.levelWrapper);
-            // this.scene.levelWrapper.append(enemy.enemyBody);
             this.observer.subscribe(enemy.nottify);
         });
 
@@ -34,7 +33,6 @@ class SceneFabric {
             this.observer.subscribe(weapon.fire);
         })
         this.scene.levelWrapper.append(this.hero.weaponList);
-
     }
 
 }

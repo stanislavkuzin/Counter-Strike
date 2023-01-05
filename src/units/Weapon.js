@@ -1,4 +1,4 @@
-class Weapon {
+class Weapon{
     static weaponImg = {
         0: 'knife.png',
         1: 'digl.png',
@@ -6,8 +6,9 @@ class Weapon {
     };
     // клас должен отвечать только за функции объекта. его отрисовка должна проходить в (допустим в фабрике)
     constructor(num) {
+        // super(num);
         this.num = num;
-        this.stockBullets = 100;
+        this.stockBullets = 10;
         this.weaponOption = this.createWeapon(this.num);
     }
     createWeapon(num) {
@@ -28,19 +29,24 @@ class Weapon {
         if (!check) {
             return;
         }
-        let allWeapon = event.target.parentElement.childNodes;
-        Array.from(allWeapon).forEach(item => {
+
+        let allWeapon = Array.from(event.target.parentElement.childNodes);
+        allWeapon.forEach(item => {
             item.classList.remove('selected');
         });
         event.target.classList.toggle('selected');
     }
     fire = (event) => {
-        if (event.target.parentElement.className === 'weaponList') {
+        if (event.target.parentElement.className === 'weaponList' || this.stockBullets === 0) {
             return;
         }
 
-        if (this.weaponOption.className === 'weapon selected') {
+        if (this.weaponOption.className === 'weapon selected' && event.pointerId === 1) {
             this.stockBullets -= 1;
+            // if (this.stockBullets === 0) {
+            //     this.weaponOption.remove();
+            //     return
+            // }
             this.weaponOption.innerHTML = `<p>${this.stockBullets}</p>"`;
             this.animateClick(event);
             return;

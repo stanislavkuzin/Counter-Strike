@@ -2,7 +2,7 @@ class Hero extends Unit {
     constructor(level) {
         super();
         this.weaponArr = [];
-        this.weaponList = this.createWeapon();
+        this.weaponList = this.createWeapon(level);
         this.unit = this.renderHero();
     }
 

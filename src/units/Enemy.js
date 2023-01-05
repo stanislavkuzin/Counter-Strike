@@ -1,4 +1,5 @@
 class Enemy extends Unit {
+    // Enemy должен быть наблюдателем за оружием. В смучае окончания обоймы оружие очищает массив наблюдателей
     constructor(num) {
         super();
         this.num = num;
@@ -16,6 +17,9 @@ class Enemy extends Unit {
             return;
         }
         event.stopPropagation()
+        if (this.liveLevel - 10 <= 0) {
+            this.unit.remove();
+        }
         let idEvent = event.target.control.getAttribute('id').slice(-1);
         if (+idEvent === this.num) {
             this.liveLevel -= 10;

@@ -7,6 +7,8 @@ class EventConrtol {
       return;
     }
     event.stopPropagation();
+      // console.log(event);
       this.observer.broadcast(event);
   }
+  
 }
