@@ -11,8 +11,32 @@ class CreateBot {
         scene.append(this.boxBot);
         this.boxBot.append(this.live);
         this.boxBot.append(this.bot);
-        //this.boxBot.addEventListener('click', po);
+        this.boxBot.addEventListener('click', damageBot);
+
+        this.offDamageBot = function() {
+            this.boxBot.removeEventListener('click', damageBot);
+        }
     }
-    
+}
+
+let countLive = 100;
+
+const damageBot = (event) => {
+   if (event.target.tagName !== 'IMG') {
+        return;
+    } else {
+        if (countLive <= 0) {
+            clearTimeout(timerId);
+            death.play();
+            event.target.parentNode.remove();
+            countLive = 100;
+        }
+        console.log(event.x, event.y)
+        let blood = new Blood(event.x, event.y);
+        setTimeout(() => document.querySelector('.blood').remove(), 400);
+        countLive -= Math.floor(Math.random() * 20);
+        event.target.previousSibling.lastChild.style.width = `${countLive}%`;
+        event.target.previousSibling.lastChild.style.borderRadius = '10px 0 0 10px';
+    }
 }
 

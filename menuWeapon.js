@@ -4,6 +4,7 @@ class MenuWeapon {
     constructor () {
         this.menu = document.createElement('div');
         this.menu.classList.add('menuWeapon');
+        this.menu.setAttribute('id', 'menuWeapon');
         scene.append(this.menu);
         this.weapon1 = document.createElement('img');
         this.weapon1.setAttribute('src', arrWeapon[3]);

@@ -9,7 +9,6 @@ class Bot {
         this.live = new Live(name);
         this.hero = document.createElement('img');
         this.hero.setAttribute ('src', bot);
-        this.hero.addEventListener('click', po);
         this.hero.classList.add('bot-duck');
         return this.hero;
     }

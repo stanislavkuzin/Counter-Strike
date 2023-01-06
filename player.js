@@ -108,6 +108,11 @@ const damagePlayer = () => {
       lineBlue.style.backgroundColor = 'rgb(195, 194, 194)';
       death.play();
       clearTimeout(timerId);
+      scene.removeEventListener('click', hit);
+      botOnLevel.offDamageBot();
+      //body.removeEventListener('keydown', changeGun);
+      menuWeapon.remove();
+      //botOnLevel.removeEventListener('click', damageBot);
       //bot1.removeEventListener('click', huck);
       //level1.removeEventListener('click', hit);
       //startOver();
