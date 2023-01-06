@@ -10,6 +10,8 @@ body {
 .wrapper {
     background-size: cover;
     position: relative;
+    width: 100%;
+    height: 100%;
     /* background-image: url(../../img/digl.png); */
 }
 
@@ -121,4 +123,10 @@ li {
 }
 #svg{
     z-index: 2000;
+}
+.back{
+    height: 100%;
+    background-image: url('../../img/back.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }

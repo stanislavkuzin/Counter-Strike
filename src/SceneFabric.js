@@ -6,7 +6,7 @@ class SceneFabric {
         this.enemis = this.createEnemy(this.level);
         this.hero = new Hero(level);
         this.scene = new Scene(this.level);
-        this.eventControl = new EventConrtol(this.observer);
+        this.eventControl = new EventConrtol(this.observer, this.hero);
     }
     // метод создает соответствующее уровню, количество Enemy. push-т в массив и возвращает в поле  this.enemis.
     createEnemy(level) {
@@ -24,13 +24,14 @@ class SceneFabric {
         // добавляет enemy  на страницу 
         this.enemis.forEach((enemy) => {
             enemy.appendTo(this.scene.levelWrapper);
-            this.observer.subscribe(enemy.nottify);
+            // this.observer.subscribe(enemy.nottify);
+            this.hero.weaponArr.forEach(item => item.subscribe(enemy.nottify));
         });
 
         // добавляет оружие героя на страницу
         this.hero.weaponArr.forEach(weapon => {
             this.observer.subscribe(weapon.select);
-            this.observer.subscribe(weapon.fire);
+            // this.observer.subscribe(weapon.fire);
         })
         this.scene.levelWrapper.append(this.hero.weaponList);
     }

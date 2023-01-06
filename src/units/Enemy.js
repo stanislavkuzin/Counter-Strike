@@ -29,14 +29,17 @@ class Enemy extends Unit {
         }
     }
     move = () => {
-        let leftPosition = Math.random()*100;
+        let leftPosition = Math.random() * 100;
         this.unit.animate([
-            { transform: `translateX(0px)`},
-            { transform: `translateX(${leftPosition}px)`},
-            { transform: `translateX(0px)`}
+            { transform: `translateX(0px)` },
+            { transform: `translateX(${leftPosition}px)` },
+            { transform: `translateX(0px)` }
         ], {
             duration: 2500,
             easing: "ease-out"
         });
+    }
+    draw() {
+        
     }
 }
