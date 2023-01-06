@@ -18,6 +18,31 @@ class Player {
 }
 
 const changeGun = (event) => {
+    switch(event.code) {
+      case 'Digit1':
+        gun.src = arrWeapon[0];
+        saveGun.play();
+        changeWeapon1();
+        scene.addEventListener('click', hit);
+        botOnLevel.damage();
+        break;
+    
+      case 'Digit2':
+        gun.src = arrWeapon[1];
+        saveGun.play();
+        changeWeapon2();
+        scene.addEventListener('click', hit);
+        botOnLevel.damage();
+        break;
+  
+      case 'Digit3':  
+        gun.src = arrWeapon[2];
+        saveGun.play();
+        changeWeapon3();
+        scene.addEventListener('click', hit);
+        botOnLevel.damage();
+        break;
+    }
   switch (event.code) {
     case 'Digit1':
       gun.src = arrWeapon[0];
@@ -85,48 +110,42 @@ function randomHuckPlayer() {
 }
 
 function huckPlayer() {
-  console.log('ki');
-  const damage = document.createElement('div');
-  damage.classList.add('bgred');
-  headshot.play();
-  scene.append(damage);
-  setTimeout(() => damage.remove(), 100);
-  randomHuckPlayer();
-  damagePlayer();
+    console.log('ki');
+    const damage = document.createElement('div');
+    damage.classList.add('bgred');
+    headshot.play();
+    scene.append(damage);
+    setTimeout(() => damage.remove(), 100);
+    randomHuckPlayer();
+    damagePlayer();
 }
 
 const damagePlayer = () => {
-  lineBlue.style.width = '100%';
-  countLineBlue -= Math.floor(Math.random() * 30);
-  lineBlue.style.width = `${countLineBlue}%`;
-
-  if (countLineBlue <= 0) {
-    gun.style.display = 'none';
-    //livePlayer.style.width = '100%'; 
-    lineBlue.style.backgroundColor = 'rgb(195, 194, 194)';
-    death.play();
-    clearTimeout(timerId);
-    scene.removeEventListener('click', hit);
-    botOnLevel.offDamageBot();
-
-    //*********FIND ERROR*********
-    menuWeapon.remove();
-    // Uncaught TypeError: menuWeapon.remove is not a function
-    // at damagePlayer (player.js:114:18)
-    // ***************************
-    
+    lineBlue.style.width = '100%';
     //countLineBlue
-    //hpPlayer.textContent = 'мертв';
-    //body.removeEventListener('keydown', changeGun);
-    //botOnLevel.removeEventListener('click', damageBot);
-    //bot1.removeEventListener('click', huck);
-    //level1.removeEventListener('click', hit);
-    //startOver();
-  } else {
-    //hpPlayer.textContent = `${countLineBlue}%`;
-    console.log('neki')
+    countLineBlue -= Math.floor(Math.random() * 30);
+    lineBlue.style.width = `${countLineBlue}%`;
+  
+    if ( countLineBlue <= 0 ) {
+      //hpPlayer.textContent = 'мертв';
+      gun.style.display = 'none';
+      //livePlayer.style.width = '100%'; 
+      lineBlue.style.backgroundColor = 'rgb(195, 194, 194)';
+      death.play();
+      clearTimeout(timerId);
+      scene.removeEventListener('click', hit);
+      botOnLevel.offDamageBot();
+      //body.removeEventListener('keydown', changeGun);
+      menuWeapon.remove();
+      //botOnLevel.removeEventListener('click', damageBot);
+      //bot1.removeEventListener('click', huck);
+      //level1.removeEventListener('click', hit);
+      //startOver();
+    } else {
+      //hpPlayer.textContent = `${countLineBlue}%`;
+      console.log('neki')
+    }
   }
-}
 
 
 

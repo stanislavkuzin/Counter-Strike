@@ -11,7 +11,6 @@ class CreateBot extends BotLiveBar {
         this.boxBot.setAttribute('id', name);
         this.boxBot.append(this.live);
         this.boxBot.append(this.bot);
-        // this.boxBot.addEventListener('click', damageBot);
         scene.append(this.boxBot);
 
         this.offDamageBot = function () {
@@ -31,6 +30,7 @@ class CreateBot extends BotLiveBar {
             setTimeout(() => document.querySelector('.blood').remove(), 400);
             this.liveLevel -= Math.floor(Math.random() * 20);
             event.target.previousSibling.setAttribute('value', this.liveLevel);
+            // event.target.previousSibling.lastChild.style.borderRadius = '10px 0 0 10px';
         }
     }
 }
@@ -38,7 +38,7 @@ class CreateBot extends BotLiveBar {
 // let countLive;
 
 // const damageBot = (event) => {
-//    if (event.target.tagName !== 'IMG') {
+//     if (event.target.tagName !== 'IMG') {
 //         return;
 //     } else {
 //         if (countLive <= 0) {
@@ -51,8 +51,8 @@ class CreateBot extends BotLiveBar {
 //         let blood = new Blood(event.x, event.y);
 //         setTimeout(() => document.querySelector('.blood').remove(), 400);
 //         countLive -= Math.floor(Math.random() * 20);
-//         console.dir(event.target);
-//         event.target.previousSibling.setAttribute('value', countLive);
+//         event.target.previousSibling.lastChild.style.width = `${countLive}%`;
+//         event.target.previousSibling.lastChild.style.borderRadius = '10px 0 0 10px';
 //     }
 // }
 

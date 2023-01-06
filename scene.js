@@ -7,6 +7,7 @@ let level;
 let botOnLevel;
 let playerGame;
 let menuWeapon;
+let startTime;
 let countMap = 0;
 let countBot = -1;
 
@@ -49,8 +50,8 @@ const openNewGame = () => {
     audioGame.loop = true;
     gogogo.play();
     body.addEventListener('keydown', closeMap);
-    scene.addEventListener('click', hit);
-    huckPlayer();
+    //scene.addEventListener('click', hit);
+    startTime = setTimeout(() => huckPlayer(), 1000);
 }
 
 const closeMap = (event) => {
@@ -61,6 +62,7 @@ const closeMap = (event) => {
         audioGame.pause();
         audioMenu.play();
         clearTimeout(timerId);
+        clearTimeout(startTime);
         body.removeEventListener('mousemove', aim)
     }
 }
