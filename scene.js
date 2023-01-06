@@ -45,6 +45,8 @@ const openNewGame = () => {
     document.body.addEventListener('click', observer.broadcast); // add Listener for bot
     playerGame = new Player('./img/knife.png');
     menuWeapon = new MenuWeapon();
+    new sceneTextMenu;
+    countLineBlue = 100;
     // countLive = 100;
     audioMenu.pause();
     audioGame.volume = '0.1';

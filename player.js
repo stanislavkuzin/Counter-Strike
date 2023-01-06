@@ -142,6 +142,14 @@ const damagePlayer = () => {
       //level1.removeEventListener('click', hit);
       //startOver();
     } else {
+      lineBlue.textContent = `${countLineBlue}hp`;
+      lineBlue.style.width = `${countLineBlue}%`;
+      lineBlue.style.borderRadius = '10px 0 0 10px';
+      if (countLineBlue < 10) {
+        lineBlue.textContent = '';
+      } else {
+        lineBlue.textContent = `${countLineBlue}hp`;
+      }
       //hpPlayer.textContent = `${countLineBlue}%`;
       console.log('neki')
     }
