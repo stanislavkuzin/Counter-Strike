@@ -38,11 +38,13 @@ const openNewGame = () => {
         countBot += 1;
     }
     level = new Scene(`level${countMap}`, countMap);
+    let observer  = new Observer();
     botOnLevel = new CreateBot(botName[countBot]);
+    observer.subscribe(botOnLevel.damageBot)
     document.body.addEventListener('click', botOnLevel.damageBot); // add Listener for bot
+    document.body.addEventListener('click', observer.broadcast); // add Listener for bot
     playerGame = new Player('./img/knife.png');
     menuWeapon = new MenuWeapon();
-    countLineBlue = 100;
     // countLive = 100;
     audioMenu.pause();
     audioGame.volume = '0.1';
