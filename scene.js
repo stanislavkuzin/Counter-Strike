@@ -41,6 +41,7 @@ const openNewGame = () => {
     playerGame = new Player('./img/knife.png');
     menuWeapon = new MenuWeapon();
     countLineBlue = 100;
+    countLive = 100;
     audioMenu.pause();
     audioGame.volume = '0.1';
     audioGame.play();

@@ -19,7 +19,7 @@ class CreateBot {
     }
 }
 
-let countLive = 100;
+let countLive;
 
 const damageBot = (event) => {
    if (event.target.tagName !== 'IMG') {
