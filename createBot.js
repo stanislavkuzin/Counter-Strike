@@ -1,52 +1,58 @@
 'use strict';
 
-class CreateBot {
+class CreateBot extends BotLiveBar {
     constructor(name) {
-        this.live = new Live(name);
+        super();
+        this.live = this.unit; // заменил кнструкцию из 2х "div" на 'progress'
         this.bot = bot(name);
         this.boxBot = document.createElement('div');
         this.boxBot.classList.add('boxbot');
         this.boxBot.classList.add('bot-anim');
-        this.boxBot.setAttribute ('id',  name);
-        scene.append(this.boxBot);
+        this.boxBot.setAttribute('id', name);
         this.boxBot.append(this.live);
         this.boxBot.append(this.bot);
+        scene.append(this.boxBot);
 
-        this.offDamageBot = function() {
-            this.boxBot.removeEventListener('click', damageBot);
-        }
-
-        this.damage = function() {
-            this.boxBot.addEventListener('click', damageBot);
+        this.offDamageBot = function () {
+            this.boxBot.removeEventListener('click', this.damageBot);
         }
     }
-}
-
-let countLive;
-
-const damageBot = (event) => {
-   if (event.target.tagName !== 'IMG') {
-        return;
-    } else {
-        if (countLive <= 0) {
-            clearTimeout(timerId);
-            death.play();
-            event.target.parentNode.remove();
-            setTimeout(() => level.delScene(), 2000);
-            setTimeout(() => openNewGame(), 2000);
+    damageBot = (event) => {
+        if (event.target.tagName !== 'IMG') {
+            return;
         } else {
+            if (this.liveLevel <= 0) {
+                clearTimeout(timerId);
+                death.play();
+                event.target.parentNode.remove();
+            }
             let blood = new Blood(event.x, event.y);
             setTimeout(() => document.querySelector('.blood').remove(), 400);
-            countLive -= Math.floor(Math.random() * 20);
-            //lineRed.textContent = `${countLive}hp`;
-            event.target.previousSibling.lastChild.style.width = `${countLive}%`;
-            event.target.previousSibling.lastChild.style.borderRadius = '10px 0 0 10px';
-            if (countLive < 10) {
-                lineRed.textContent = '';
-            } else {
-                lineRed.textContent = `${countLive}hp`;
-            }
+            this.liveLevel -= Math.floor(Math.random() * 20);
+            event.target.previousSibling.setAttribute('value', this.liveLevel);
+            // event.target.previousSibling.lastChild.style.borderRadius = '10px 0 0 10px';
         }
     }
 }
+
+// let countLive;
+
+// const damageBot = (event) => {
+//     if (event.target.tagName !== 'IMG') {
+//         return;
+//     } else {
+//         if (countLive <= 0) {
+//             clearTimeout(timerId);
+//             death.play();
+//             event.target.parentNode.remove();
+//             countLive = 100;
+//         }
+//         console.log(event.x, event.y)
+//         let blood = new Blood(event.x, event.y);
+//         setTimeout(() => document.querySelector('.blood').remove(), 400);
+//         countLive -= Math.floor(Math.random() * 20);
+//         event.target.previousSibling.lastChild.style.width = `${countLive}%`;
+//         event.target.previousSibling.lastChild.style.borderRadius = '10px 0 0 10px';
+//     }
+// }
 

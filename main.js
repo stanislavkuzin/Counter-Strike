@@ -80,4 +80,4 @@ const exitGame = () => {
   body.removeEventListener('keydown', closeMap);
 }
 
-exit.addEventListener('click', exitGame);
+exit.addEventListener('click', exitGame); // Exit Button
