@@ -63,7 +63,7 @@ const closeMap = (event) => {
     }
 }
 
-newGame.addEventListener('click', openNewGame);
+newGame.addEventListener('click', openNewGame); // new game button (LoadScrean)
 
 
 
