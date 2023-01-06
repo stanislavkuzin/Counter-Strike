@@ -18,7 +18,11 @@ class CreateBot extends BotLiveBar {
         }
     }
     damageBot = (event) => {
-        if (event.target.tagName !== 'IMG') {
+        // если добавить игроку progress
+        // к нину легче будет добраться через *event.targe.nextSibling*
+        // и проверить уровень ХП
+        // Второй вариант отписаться от обсервера (есть ошибка при реализации)
+        if (event.target.tagName !== 'IMG' ) { // сюда добавить условие ИЛИ
             return;
         } else {
             if (this.liveLevel <= 0) {
@@ -30,29 +34,7 @@ class CreateBot extends BotLiveBar {
             setTimeout(() => document.querySelector('.blood').remove(), 400);
             this.liveLevel -= Math.floor(Math.random() * 20);
             event.target.previousSibling.setAttribute('value', this.liveLevel);
-            // event.target.previousSibling.lastChild.style.borderRadius = '10px 0 0 10px';
         }
     }
 }
-
-// let countLive;
-
-// const damageBot = (event) => {
-//     if (event.target.tagName !== 'IMG') {
-//         return;
-//     } else {
-//         if (countLive <= 0) {
-//             clearTimeout(timerId);
-//             death.play();
-//             event.target.parentNode.remove();
-//             countLive = 100;
-//         }
-//         console.log(event.x, event.y)
-//         let blood = new Blood(event.x, event.y);
-//         setTimeout(() => document.querySelector('.blood').remove(), 400);
-//         countLive -= Math.floor(Math.random() * 20);
-//         event.target.previousSibling.lastChild.style.width = `${countLive}%`;
-//         event.target.previousSibling.lastChild.style.borderRadius = '10px 0 0 10px';
-//     }
-// }
 
