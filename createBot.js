@@ -11,10 +11,14 @@ class CreateBot {
         scene.append(this.boxBot);
         this.boxBot.append(this.live);
         this.boxBot.append(this.bot);
-        this.boxBot.addEventListener('click', damageBot);
+        //this.boxBot.addEventListener('click', damageBot);
 
         this.offDamageBot = function() {
             this.boxBot.removeEventListener('click', damageBot);
+        }
+
+        this.damage = function() {
+            this.boxBot.addEventListener('click', damageBot);
         }
     }
 }
@@ -29,14 +33,15 @@ const damageBot = (event) => {
             clearTimeout(timerId);
             death.play();
             event.target.parentNode.remove();
-            countLive = 100;
+            setTimeout(() => level.delScene(), 2000);
+            setTimeout(() => openNewGame(), 2000);
+        } else {
+            let blood = new Blood(event.x, event.y);
+            setTimeout(() => document.querySelector('.blood').remove(), 400);
+            countLive -= Math.floor(Math.random() * 20);
+            event.target.previousSibling.lastChild.style.width = `${countLive}%`;
+            event.target.previousSibling.lastChild.style.borderRadius = '10px 0 0 10px';
         }
-        console.log(event.x, event.y)
-        let blood = new Blood(event.x, event.y);
-        setTimeout(() => document.querySelector('.blood').remove(), 400);
-        countLive -= Math.floor(Math.random() * 20);
-        event.target.previousSibling.lastChild.style.width = `${countLive}%`;
-        event.target.previousSibling.lastChild.style.borderRadius = '10px 0 0 10px';
     }
 }
 

@@ -23,18 +23,24 @@ const changeGun = (event) => {
         gun.src = arrWeapon[0];
         saveGun.play();
         changeWeapon1();
+        scene.addEventListener('click', hit);
+        botOnLevel.damage();
         break;
     
       case 'Digit2':
         gun.src = arrWeapon[1];
         saveGun.play();
         changeWeapon2();
+        scene.addEventListener('click', hit);
+        botOnLevel.damage();
         break;
   
       case 'Digit3':  
         gun.src = arrWeapon[2];
         saveGun.play();
         changeWeapon3();
+        scene.addEventListener('click', hit);
+        botOnLevel.damage();
         break;
     }
 }
@@ -85,7 +91,6 @@ function randomHuckPlayer() {
 }
   
 function huckPlayer() {
-    console.log('ki');
     const damage = document.createElement('div');
     damage.classList.add('bgred');
     headshot.play();
@@ -99,7 +104,6 @@ const damagePlayer = () => {
     lineBlue.style.width = '100%';
     //countLineBlue
     countLineBlue -= Math.floor(Math.random() * 30);
-    lineBlue.style.width = `${countLineBlue}%`;
   
     if ( countLineBlue <= 0 ) {
       //hpPlayer.textContent = 'мертв';
@@ -111,14 +115,16 @@ const damagePlayer = () => {
       scene.removeEventListener('click', hit);
       botOnLevel.offDamageBot();
       //body.removeEventListener('keydown', changeGun);
-      menuWeapon.remove();
+      //menuWeapon.remove();
       //botOnLevel.removeEventListener('click', damageBot);
       //bot1.removeEventListener('click', huck);
       //level1.removeEventListener('click', hit);
       //startOver();
+      lineBlue.style.borderRadius = '10px 10px 10px 10px';
     } else {
       //hpPlayer.textContent = `${countLineBlue}%`;
-      console.log('neki')
+      lineBlue.style.width = `${countLineBlue}%`;
+      lineBlue.style.borderRadius = '10px 0 0 10px';
     }
   }
 
