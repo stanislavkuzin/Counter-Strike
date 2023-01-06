@@ -11,7 +11,6 @@ class CreateBot {
         scene.append(this.boxBot);
         this.boxBot.append(this.live);
         this.boxBot.append(this.bot);
-        //this.boxBot.addEventListener('click', damageBot);
 
         this.offDamageBot = function() {
             this.boxBot.removeEventListener('click', damageBot);
@@ -39,8 +38,14 @@ const damageBot = (event) => {
             let blood = new Blood(event.x, event.y);
             setTimeout(() => document.querySelector('.blood').remove(), 400);
             countLive -= Math.floor(Math.random() * 20);
+            //lineRed.textContent = `${countLive}hp`;
             event.target.previousSibling.lastChild.style.width = `${countLive}%`;
             event.target.previousSibling.lastChild.style.borderRadius = '10px 0 0 10px';
+            if (countLive < 10) {
+                lineRed.textContent = '';
+            } else {
+                lineRed.textContent = `${countLive}hp`;
+            }
         }
     }
 }

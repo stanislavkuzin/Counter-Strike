@@ -41,6 +41,7 @@ const openNewGame = () => {
     botOnLevel = new CreateBot(botName[countBot]);
     playerGame = new Player('./img/knife.png');
     menuWeapon = new MenuWeapon();
+    new sceneTextMenu;
     countLineBlue = 100;
     countLive = 100;
     audioMenu.pause();
