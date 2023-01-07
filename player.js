@@ -12,6 +12,7 @@ class Player {
     this.player.setAttribute('src', weapon);
     // this.live = new LivePlayer();
     this.live = new BotLiveBar();
+    this.live.unit.classList.add('live-player');
     scene.append(this.live.unit);
     scene.append(this.player);
     body.addEventListener('mousemove', aim);
