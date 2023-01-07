@@ -81,3 +81,6 @@ const exitGame = () => {
 }
 
 exit.addEventListener('click', exitGame); // Exit Button
+
+// MUTE LISTENER / AUDIO CONTCOL
+muteIcon.addEventListener('click', mute)
