@@ -18,13 +18,11 @@ class CreateBot extends BotLiveBar {
         }
     }
     damageBot = (event) => {
-        // если добавить игроку progress
-        // к нину легче будет добраться через *event.targe.nextSibling*
-        // и проверить уровень ХП
-        // Второй вариант отписаться от обсервера (есть ошибка при реализации)
-        if (event.target.tagName !== 'IMG' ) { // сюда добавить условие ИЛИ
+        let check = event.target.offsetParent.nextElementSibling.getAttribute('value'); // проверка значениея уровня ХП игрока
+        if (event.target.tagName !== 'IMG' || check <= 0) { 
             return;
         } else {
+            console.dir();
             if (this.liveLevel <= 0) {
                 clearTimeout(timerId);
                 death.play();

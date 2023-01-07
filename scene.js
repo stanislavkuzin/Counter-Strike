@@ -49,8 +49,6 @@ const openNewGame = () => {
     playerGame = new Player('./img/knife.png');
     menuWeapon = new MenuWeapon();
     new sceneTextMenu;
-    countLineBlue = 100;
-    // countLive = 100;
     audioMenu.pause();
     audioGame.volume = '0.1';
     audioGame.play();
@@ -58,7 +56,7 @@ const openNewGame = () => {
     gogogo.play();
     body.addEventListener('keydown', closeMap);
     //scene.addEventListener('click', hit);
-    startTime = setTimeout(() => huckPlayer(), 1000);
+    startTime = setTimeout(() => playerGame.huckPlayer(), 1000);
 }
 
 const closeMap = (event) => {
