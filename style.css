@@ -258,7 +258,9 @@ a {
 .inmenu-text {
     width: 100px;
     height: 70px;
-    border: solid 2px black;
+    border: solid 2px rgba(0, 0, 0, 0.288);
+    padding-left: 2px;
+    padding-right: 2px;
 }
 
 .livebot {
@@ -413,8 +415,22 @@ img{
     left: 30px;
 }
 .box_in{
+    white-space: nowrap;
     height: fit-content;
     align-items: center;
     color: rgb(247, 243, 0);
     text-shadow:0 0 20px rgb(243, 7, 153);
+}
+
+#counter1::before{
+    content: 'SHOTS : ';
+    margin-bottom: 100px;
+}
+#counter2::before{
+    content: 'HIT : ';
+    margin-bottom: 100px;
+}
+#counter3::before{
+    content: 'FRAG : ';
+    margin-bottom: 100px;
 }
