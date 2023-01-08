@@ -42,26 +42,7 @@ const changeGun = (event) => {
         scene.addEventListener('click', hit);
         botOnLevel.damage();
         break;
-    }
-  switch (event.code) {
-    case 'Digit1':
-      gun.src = arrWeapon[0];
-      saveGun.play();
-      changeWeapon1();
-      break;
-
-    case 'Digit2':
-      gun.src = arrWeapon[1];
-      saveGun.play();
-      changeWeapon2();
-      break;
-
-    case 'Digit3':
-      gun.src = arrWeapon[2];
-      saveGun.play();
-      changeWeapon3();
-      break;
-  }
+      }
 }
 
 const changeWeapon1 = () => {
