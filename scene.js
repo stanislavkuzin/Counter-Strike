@@ -48,6 +48,7 @@ const openNewGame = () => {
     setTimeout(observer.unsubscribe(botOnLevel.damageBot), 3000);
     document.querySelector('.bot-duck').addEventListener('click', (event) => { observer.broadcast(event) }); // add Listener for observer
     playerGame = new Player(arrWeapon[0]);
+    new Radar();
     menuWeapon = new MenuWeapon();
     localStorage.setItem('data', JSON.stringify(data));
     let sceneMenu = new sceneTextMenu;

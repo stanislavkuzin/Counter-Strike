@@ -237,6 +237,14 @@ a {
     flex-direction: column;
 }
 
+.radar {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    bottom: 70px;
+    right: 20px;
+}
+
 #digl1 {
     border: solid rgb(81, 255, 0);
 }
