@@ -290,7 +290,7 @@ const closeMap = (event) => {
     }
 }
 
-const start = () => {
+function start() {
     countMap = 0;
     levelDifficultyBot = 30;
     levelDifficultyPlayer = 30;
