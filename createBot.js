@@ -18,41 +18,21 @@ class CreateBot extends BotLiveBar {
         }
     }
     damageBot = (event) => {
-        if (event.target.tagName !== 'IMG') {
+        let check = event.target.offsetParent.nextElementSibling.getAttribute('value'); // проверка значениея уровня ХП игрока
+        if (event.target.tagName !== 'IMG' || check <= 0) { 
             return;
         } else {
+            console.dir();
             if (this.liveLevel <= 0) {
                 clearTimeout(timerId);
-                death.play();
+                audio.death.play();
                 event.target.parentNode.remove();
             }
             let blood = new Blood(event.x, event.y);
             setTimeout(() => document.querySelector('.blood').remove(), 400);
             this.liveLevel -= Math.floor(Math.random() * 20);
             event.target.previousSibling.setAttribute('value', this.liveLevel);
-            // event.target.previousSibling.lastChild.style.borderRadius = '10px 0 0 10px';
         }
     }
 }
-
-// let countLive;
-
-// const damageBot = (event) => {
-//     if (event.target.tagName !== 'IMG') {
-//         return;
-//     } else {
-//         if (countLive <= 0) {
-//             clearTimeout(timerId);
-//             death.play();
-//             event.target.parentNode.remove();
-//             countLive = 100;
-//         }
-//         console.log(event.x, event.y)
-//         let blood = new Blood(event.x, event.y);
-//         setTimeout(() => document.querySelector('.blood').remove(), 400);
-//         countLive -= Math.floor(Math.random() * 20);
-//         event.target.previousSibling.lastChild.style.width = `${countLive}%`;
-//         event.target.previousSibling.lastChild.style.borderRadius = '10px 0 0 10px';
-//     }
-// }
 

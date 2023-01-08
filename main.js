@@ -38,9 +38,9 @@ const menu = (event) => {
   if ( event.key !== 'Enter') {
     return;
   } else {
-    audioMenu.play();
-    audioMenu.loop = true;
-    audioMenu.volume = '0.1';
+    audio.audioMenu.play();
+    audio.audioMenu.loop = true;
+    audio.audioMenu.volume = '0.1';
     textFon.style.display = 'none';
     let timeId = setInterval(function() {
       imgFon.style.opacity = imgFon.style.opacity - 0.05;
@@ -53,14 +53,14 @@ const menu = (event) => {
 
 const hover = (event) => {
   if (event.target.tagName === 'DIV'){
-    audioHover.play();
+    audio.audioHover.play();
   }  
 }
 
 const click = (event) => {
   if (event.target.tagName === 'DIV'){
-    clickButton.volume = '0.7';
-    clickButton.play();
+    audio.clickButton.volume = '0.7';
+    audio.clickButton.play();
   }
 }
 
@@ -72,7 +72,7 @@ box.addEventListener('click', click);
 let newGame = document.getElementById('newgame');
 
 const exitGame = () => {
-  audioMenu.pause();
+  audio.audioMenu.pause();
   textFon.style.display = 'flex';
   imgFon.style.opacity = '1';
   imgFon.style.display = 'block';
@@ -81,3 +81,6 @@ const exitGame = () => {
 }
 
 exit.addEventListener('click', exitGame); // Exit Button
+
+// MUTE LISTENER / AUDIO CONTCOL
+muteIcon.addEventListener('click', mute)

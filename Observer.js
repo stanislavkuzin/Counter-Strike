@@ -2,15 +2,17 @@ class Observer {
     constructor() {
       this.subscribers = [];
     }
-    subscribe(callback) {
-      this.subscribers.push(callback);
+    subscribe(damageBot) {
+      this.subscribers.push(damageBot);
     }
-    unsubscribe(callback) {
-      //
+    unsubscribe(damageBot) {
+      this.subscribers.filter(callBack =>{
+        callBack !== damageBot;
+      });
     }
-    broadcast(data) {
-      this.subscribers.forEach((callback) => {
-        callback(data);
+    broadcast(event) {
+      this.subscribers.forEach((damageBot) => {
+        damageBot(event);
       });
     }
   }
