@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 body, html {
     margin: 0;
     height: 100%;
@@ -247,9 +248,9 @@ a {
 }
 
 .inmenu-text {
-    width: 200px;
-    height: 50px;
-    border: solid;
+    width: 100px;
+    height: 70px;
+    border: solid 2px black;
 }
 
 .livebot {
@@ -325,4 +326,24 @@ img{
     color: rgb(247, 243, 0);
     text-shadow:0 0 20px rgb(243, 7, 153);
     cursor: pointer;
+}
+
+.box_out{
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+    align-content: center;
+    text-align: center;
+    vertical-align: middle;
+    z-index: 1000;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+}
+.box_in{
+    height: fit-content;
+    align-items: center;
+    color: rgb(247, 243, 0);
+    text-shadow:0 0 20px rgb(243, 7, 153);
 }
