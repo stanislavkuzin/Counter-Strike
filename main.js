@@ -70,6 +70,7 @@ const exitGame = () => {
   textFon.style.display = 'flex';
   imgFon.style.opacity = '1';
   imgFon.style.display = 'block';
+  controlsdiv.style.display = 'none';
   body.addEventListener('keydown', menu);
   body.removeEventListener('keydown', closeMap);
 }

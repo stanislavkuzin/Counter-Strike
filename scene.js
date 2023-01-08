@@ -84,6 +84,7 @@ const start = () => {
     levelDifficultyPlayer = 30;
     sceneload.style.display = 'flex';
     load.style.display = 'flex';
+    controlsdiv.style.display = 'none';
     setTimeout(() => openNewGame(), 5000);
     setTimeout(() => sceneload.style.display = 'none', 6000);
     setTimeout(() => load.style.display = 'none', 5000);
