@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const body = document.body;
 const imgFon = document.getElementById('imgfon');
@@ -6,13 +6,6 @@ const textFon = document.getElementById('textfon');
 const box = document.getElementById('box');
 const exit = document.getElementById('exit');
 imgFon.style.opacity = '1';
-
-const offTextMenu = (event) => {
-  event.preventDefault();
-}
-
-//body.addEventListener('contextmenu', offTextMenu);
-
 
 bgImage();
 
@@ -70,7 +63,6 @@ body.addEventListener('keydown', menu);
 box.addEventListener('mouseover', hover);
 box.addEventListener('click', click);
 
-
 let newGame = document.getElementById('newgame');
 
 const exitGame = () => {
@@ -103,7 +95,6 @@ function controls(controls) {
   for (let i = 0; i < buttons.length; i += 1) {
     let button = document.createElement('div');
     button.textContent = buttons[i];
-    console.log(buttons[i]);
     button.style.color = 'white';
     controls.append(button);
   }

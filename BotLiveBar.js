@@ -1,3 +1,5 @@
+'use strict';
+
 class BotLiveBar{
     constructor() {
         this.liveLevel = 100;

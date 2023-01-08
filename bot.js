@@ -1,7 +1,6 @@
 'use strict'
 
 const imgBot = ['./img/bot1.png','./img/bot2.png','./img/bot3.png'];
-let arrBot = [];
 
 class Bot {
     constructor(name, bot) {

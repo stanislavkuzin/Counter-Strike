@@ -1,3 +1,5 @@
+'use strict';
+
 class Observer {
     constructor() {
       this.subscribers = [];

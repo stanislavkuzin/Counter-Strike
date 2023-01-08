@@ -1,7 +1,5 @@
 'use strict';
 
-// muteButton
-
 let muteButton = document.createElement('div');
 let muteIcon = document.createElement('span');
 muteIcon.classList.add('material-icons');
@@ -22,7 +20,8 @@ const audio = {
     gogogo: new Audio('./aud/gogogo.mp3'),
     death: new Audio('./aud/death.mp3'),
     headshot: new Audio('./aud/headshot2.mp3')
-};
+}
+
 checkLocalStorage();
 function checkLocalStorage() {
     let temp = localStorage.getItem('data-mute');
@@ -30,6 +29,7 @@ function checkLocalStorage() {
         mute();
     }
 }
+
 function mute() {
     for (const key in audio) {
         audio[key].muted = !audio[key].muted;

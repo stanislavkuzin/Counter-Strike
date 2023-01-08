@@ -9,8 +9,6 @@ class Blood {
         this.blood.style.position = 'absolute';
         this.blood.style.left = `${width}px`;
         this.blood.style.top = `${height}px`;
-
-        
     }
 }
 

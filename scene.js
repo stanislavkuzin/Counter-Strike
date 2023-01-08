@@ -78,7 +78,6 @@ const closeMap = (event) => {
     }
 }
 
-
 const start = () => {
     countMap = 0;
     levelDifficultyBot = 30;
@@ -90,8 +89,7 @@ const start = () => {
     setTimeout(() => load.style.display = 'none', 5000);
 }
 
-newGame.addEventListener('click', start); // new game button (LoadScrean)
-
+newGame.addEventListener('click', start);
 
 function drawResults(localStorage) {
     let temp = JSON.parse(localStorage.getItem('data'));

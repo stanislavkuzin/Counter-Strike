@@ -12,15 +12,14 @@ class Player {
     this.player = document.createElement('img');
     this.player.setAttribute('id', 'gun');
     this.player.setAttribute('src', weapon);
-    // this.live = new LivePlayer();
     this.live = new BotLiveBar();
     this.live.unit.classList.add('live-player');
     scene.append(this.live.unit);
     scene.append(this.player);
     body.addEventListener('mousemove', aim);
   }
+
   huckPlayer = () => {
-    console.log('ki');
     const damage = document.createElement('div');
     damage.classList.add('bgred');
     audio.headshot.play();
@@ -29,30 +28,22 @@ class Player {
     randomHuckPlayer();
     this.damagePlayer();
   }
-  damagePlayer = () => {
-    this.live.liveLevel -= Math.floor(Math.random() * levelDifficultyPlayer);
-    this.live.unit.setAttribute('value', this.live.liveLevel);
 
+  damagePlayer = () => {
     if (this.live.liveLevel <= 0) {
-      //hpPlayer.textContent = 'мертв';
       gun.style.display = 'none';
-      //livePlayer.style.width = '100%'; 
-      // lineBlue.style.backgroundColor = 'rgb(195, 194, 194)';
       audio.death.play();
       clearTimeout(timerId);
       scene.removeEventListener('click', hit);
       botOnLevel.offDamageBot();
-      //body.removeEventListener('keydown', changeGun);
-      //menuWeapon.remove();
-      //botOnLevel.removeEventListener('click', damageBot);
-      //bot1.removeEventListener('click', huck);
-      //level1.removeEventListener('click', hit);
       countMap = 0;
       gameOver();
+    } else {
+      this.live.liveLevel -= Math.floor(Math.random() * levelDifficultyPlayer);
+      this.live.unit.setAttribute('value', this.live.liveLevel);
     }
   }
 }
-
 
 function gameOver() {
   endgame.style.display = 'flex';
@@ -84,24 +75,18 @@ const changeGun = (event) => {
       gun.src = arrWeapon[0];
       audio.saveGun.play();
       changeWeapon1();
-      //scene.addEventListener('click', hit);
-      //botOnLevel.damageBot();
       break;
 
     case 'Digit2':
       gun.src = arrWeapon[1];
       audio.saveGun.play();
       changeWeapon2();
-      //scene.addEventListener('click', hit);
-      //botOnLevel.damageBot();
       break;
 
     case 'Digit3':
       gun.src = arrWeapon[2];
       audio.saveGun.play();
       changeWeapon3();
-      //scene.addEventListener('click', hit);
-      //botOnLevel.damageBot();
       break;
   }
 }
@@ -135,7 +120,7 @@ const hit = (event) => {
   gun.style.marginBottom = '-40px';
   setTimeout(() => gun.style.marginBottom = '0px', 100);
   data["data-count_shoots"] += 1;
-  localStorage.setItem('data', JSON.stringify(data))
+  localStorage.setItem('data', JSON.stringify(data));
 }
 
 
@@ -150,55 +135,9 @@ const aim = (event) => {
 }
 
 function randomHuckPlayer() {
-  timerId = setTimeout(() => huckPlayer(), (Math.floor(Math.random() * 8) * 1000));
+  timerId = setTimeout(() => playerGame.huckPlayer(), (Math.floor(Math.random() * 8) * 1000));
 }
 
-
-function huckPlayer() {
-  console.log('ki');
-  const damage = document.createElement('div');
-  damage.classList.add('bgred');
-  audio.headshot.play();
-  scene.append(damage);
-  setTimeout(() => damage.remove(), 100);
-  randomHuckPlayer();
-  playerGame.damagePlayer();
-}
-
-const damagePlayer1 = () => {
-  // lineBlue.style.width = '100%';
-  //countLineBlue
-  countLineBlue -= Math.floor(Math.random() * levelDifficultyPlayer);
-  // lineBlue.style.width = `${countLineBlue}%`;
-
-  if (countLineBlue <= 0) {
-    //hpPlayer.textContent = 'мертв';
-    gun.style.display = 'none';
-    //livePlayer.style.width = '100%'; 
-    lineBlue.style.backgroundColor = 'rgb(195, 194, 194)';
-    audio.death.play();
-    clearTimeout(timerId);
-    scene.removeEventListener('click', hit);
-    botOnLevel.offDamageBot();
-    //body.removeEventListener('keydown', changeGun);
-    //menuWeapon.remove();
-    //botOnLevel.removeEventListener('click', damageBot);
-    //bot1.removeEventListener('click', huck);
-    //level1.removeEventListener('click', hit);
-    //startOver();
-  } else {
-    // lineBlue.textContent = `${countLineBlue}hp`;
-    // lineBlue.style.width = `${countLineBlue}%`;
-    // lineBlue.style.borderRadius = '10px 0 0 10px';
-    // if (countLineBlue < 10) {
-    //   lineBlue.textContent = '';
-    // } else {
-    //   lineBlue.textContent = `${countLineBlue}hp`;
-    // }
-    //hpPlayer.textContent = `${countLineBlue}%`;
-    console.log('neki')
-  }
-}
 
 
 

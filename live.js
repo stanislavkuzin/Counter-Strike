@@ -1,7 +1,5 @@
 'use strict';
 
-let arrLive = [];
-
 class Live {
     constructor(name) {
         this.name = name;
