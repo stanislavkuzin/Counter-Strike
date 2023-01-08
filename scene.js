@@ -79,6 +79,16 @@ const closeMap = (event) => {
 newGame.addEventListener('click', openNewGame); // new game button (LoadScrean)
 
 
+function drawResults(localStorage) {
+    let temp = JSON.parse(localStorage.getItem('data'));
+    let count = 0;
+    let divArr = Array.from(document.querySelectorAll('.box_in'));
+    for (const item in temp) {
+           divArr[count].textContent = temp[item]; 
+        count += 1;
+    }
+}
+
 
 
 
