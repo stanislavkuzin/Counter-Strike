@@ -22,43 +22,45 @@ function bgImage() {
   const img3 = "./img/gif3.gif";
 
   const arr = [img1, img2, img3];
-  imgFon.src="./img/gif1.gif";
+  imgFon.src = "./img/gif1.gif";
 
   let index = 1;
-  setInterval(function() {
+  setInterval(function () {
     imgFon.src = arr[index];
     index += 1;
-    if(index === arr.length) {
+    if (index === arr.length) {
       index = 0;
     }
   }, 5500);
 };
 
 const menu = (event) => {
-  if ( event.key !== 'Enter') {
+  if (event.key !== 'Enter') {
     return;
   } else {
     audio.audioMenu.play();
     audio.audioMenu.loop = true;
     audio.audioMenu.volume = '0.1';
     textFon.style.display = 'none';
-    let timeId = setInterval(function() {
+    let timeId = setInterval(function () {
       imgFon.style.opacity = imgFon.style.opacity - 0.05;
     }, 50);
-    setTimeout(function() {clearInterval(timeId);
-      imgFon.style.display = 'none'}, 1000);
+    setTimeout(function () {
+      clearInterval(timeId);
+      imgFon.style.display = 'none'
+    }, 1000);
   };
   body.removeEventListener('keydown', menu);
 }
 
 const hover = (event) => {
-  if (event.target.tagName === 'DIV'){
+  if (event.target.tagName === 'DIV') {
     audio.audioHover.play();
-  }  
+  }
 }
 
 const click = (event) => {
-  if (event.target.tagName === 'DIV'){
+  if (event.target.tagName === 'DIV') {
     audio.clickButton.volume = '0.7';
     audio.clickButton.play();
   }
@@ -84,3 +86,57 @@ exit.addEventListener('click', exitGame); // Exit Button
 
 // MUTE LISTENER / AUDIO CONTCOL
 muteIcon.addEventListener('click', mute)
+
+// CONTROLS BUTTUNS
+let controlBut = document.getElementsByClassName('controls')[0];
+const controlsdiv = document.createElement('div');
+controlBut.addEventListener('click', () => {showControlWindow(controlsdiv)})
+controls(controlsdiv);
+function controls(controls) {
+  let buttons = [
+    'Esc - exit of current geme and return main menu',
+   'BackSpace - move to the next level',
+    'Enter - return main menu',
+    '1 - choose a weapon',
+    '2 - choose a weapon',
+    '3 - choose a weapon'];
+  for (let i = 0; i < buttons.length; i += 1) {
+    let button = document.createElement('div');
+    button.textContent = buttons[i];
+    console.log(buttons[i]);
+    button.style.color = 'white';
+    controls.append(button);
+  }
+  let closeButtun = document.createElement('div');
+  closeButtun.innerHTML = '<span class="material-symbols-outlined">cancel</span>';
+  closeButtun.style.position = 'absolute';
+  closeButtun.style.right = '-10px';
+  closeButtun.style.top = '-10px';
+  closeButtun.addEventListener('click',() => {closeControlWindow(controls)})
+  controls.append(closeButtun);
+
+  controls.style.width = '400px';
+  controls.style.color = 'white';
+  controls.style.display = 'flex';
+  controls.style.flexDirection = 'column';
+  controls.style.display = 'none';
+  controls.style.gap = '3%';
+  controls.style.justifyContent = 'center';
+  controls.style.alignItems = 'center';
+  controls.style.height = '500px';
+  controls.style.position = 'absolute';
+  controls.style.left = 'calc("50% - 400px")';
+  controls.style.top = 'calc(50% - 400px)';
+  controls.style.background = 'black';
+  controls.style.zIndex = '1000';
+
+  document.body.append(controls);
+
+}
+
+function closeControlWindow (block) {
+  block.style.display = 'none';
+}
+function showControlWindow (block) {
+  block.style.display = 'flex';
+}
