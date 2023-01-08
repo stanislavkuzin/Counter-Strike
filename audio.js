@@ -7,7 +7,6 @@ let muteIcon = document.createElement('span');
 muteIcon.classList.add('material-icons');
 muteIcon.textContent = 'volume_up';
 muteButton.append(muteIcon);
-muteButton.setAttribute('data-mute', 'unMute');
 muteButton.classList.add('muteButton');
 document.body.append(muteButton);
 
@@ -24,12 +23,17 @@ const audio = {
     death: new Audio('./aud/death.mp3'),
     headshot: new Audio('./aud/headshot2.mp3')
 };
-
-function mute(event) {
-    console.log(event.target.textContent);
+checkLocalStorage();
+function checkLocalStorage() {
+    let temp = localStorage.getItem('data-mute');
+    if (temp === 'volume_off') {
+        mute();
+    }
+}
+function mute() {
     for (const key in audio) {
-            audio[key].muted = !audio[key].muted;
-            audio[key].muted ? event.target.textContent = 'volume_off' : event.target.textContent = 'volume_up';
-        // }
+        audio[key].muted = !audio[key].muted;
+        audio[key].muted ? muteIcon.textContent = 'volume_off' : muteIcon.textContent = 'volume_up';
+        localStorage.setItem('data-mute', muteIcon.textContent);
     }
 }
