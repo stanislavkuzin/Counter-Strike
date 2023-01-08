@@ -110,8 +110,8 @@ function controls(controls) {
   let closeButtun = document.createElement('div');
   closeButtun.innerHTML = '<span class="material-symbols-outlined">cancel</span>';
   closeButtun.style.position = 'absolute';
-  closeButtun.style.right = '-10px';
-  closeButtun.style.top = '-10px';
+  closeButtun.style.right = '10px';
+  closeButtun.style.top = '10px';
   closeButtun.addEventListener('click',() => {closeControlWindow(controls)})
   controls.append(closeButtun);
 
@@ -123,12 +123,14 @@ function controls(controls) {
   controls.style.gap = '3%';
   controls.style.justifyContent = 'center';
   controls.style.alignItems = 'center';
-  controls.style.height = '500px';
+  controls.style.height = '300px';
   controls.style.position = 'absolute';
   controls.style.left = 'calc("50% - 400px")';
-  controls.style.top = 'calc(50% - 400px)';
+  controls.style.top = 'calc(50% - 150px)';
   controls.style.background = 'black';
   controls.style.zIndex = '1000';
+  controls.style.border = '2px solid white';
+  controls.style.fontFamily = 'Arial';
 
   document.body.append(controls);
 
