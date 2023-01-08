@@ -176,11 +176,11 @@ a {
     bottom: 20px;
 }
 
-.inbox {
+.controls {
     color: rgb(206, 206, 206);
 }
 
-.inbox:hover {
+.controls:hover {
     color: rgb(167, 167, 167);
 }
 
