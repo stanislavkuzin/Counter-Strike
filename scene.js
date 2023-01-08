@@ -81,6 +81,8 @@ const closeMap = (event) => {
 
 const start = () => {
     countMap = 0;
+    levelDifficultyBot = 30;
+    levelDifficultyPlayer = 30;
     sceneload.style.display = 'flex';
     load.style.display = 'flex';
     setTimeout(() => openNewGame(), 5000);

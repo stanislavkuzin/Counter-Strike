@@ -1,5 +1,8 @@
 'use strict';
 
+let levelDifficultyBot;
+let levelDifficultyPlayer;
+
 class CreateBot extends BotLiveBar {
     constructor(name) {
         super();
@@ -26,6 +29,8 @@ class CreateBot extends BotLiveBar {
                 clearTimeout(timerId);
                 audio.death.play();
                 event.target.parentNode.remove();
+                levelDifficultyBot -= 2;
+                levelDifficultyPlayer += 5;
                 data["data-count_frag"] += 1;
                 localStorage.setItem('data', JSON.stringify(data))
                 newLevel();
@@ -34,7 +39,7 @@ class CreateBot extends BotLiveBar {
             }
             let blood = new Blood(event.x, event.y);
             setTimeout(() => document.querySelector('.blood').remove(), 400);
-            this.liveLevel -= Math.floor(Math.random() * 20);
+            this.liveLevel -= Math.floor(Math.random() * levelDifficultyBot);
             event.target.previousSibling.setAttribute('value', this.liveLevel);
             data["data-count_hits"] += 1;
             localStorage.setItem('data', JSON.stringify(data))

@@ -30,7 +30,7 @@ class Player {
     this.damagePlayer();
   }
   damagePlayer = () => {
-    this.live.liveLevel -= Math.floor(Math.random() * 30);
+    this.live.liveLevel -= Math.floor(Math.random() * levelDifficultyPlayer);
     this.live.unit.setAttribute('value', this.live.liveLevel);
 
     if (this.live.liveLevel <= 0) {
@@ -168,7 +168,7 @@ function huckPlayer() {
 const damagePlayer1 = () => {
   // lineBlue.style.width = '100%';
   //countLineBlue
-  countLineBlue -= Math.floor(Math.random() * 30);
+  countLineBlue -= Math.floor(Math.random() * levelDifficultyPlayer);
   // lineBlue.style.width = `${countLineBlue}%`;
 
   if (countLineBlue <= 0) {
