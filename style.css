@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+@font-face {
+    font-family: "Press Start 2P";
+    src: url(./font/PressStart2P-Regular.ttf);
+  }
+
+=======
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+>>>>>>> d494d0b6bfe660e7e784c3e2ec5b8de6b31c724f
 body, html {
     margin: 0;
     height: 100%;
@@ -338,26 +347,7 @@ img{
     cursor: pointer;
 }
 
-.box_out{
-    font-family: 'Orbitron', sans-serif;
-    display: flex;
-    flex-direction: row;
-    gap: 2%;
-    align-content: center;
-    text-align: center;
-    vertical-align: middle;
-    z-index: 1000;
-    position: absolute;
-    bottom: 30px;
-    left: 30px;
-}
-.box_in{
-    height: fit-content;
-    align-items: center;
-    color: rgb(247, 243, 0);
-    text-shadow:0 0 20px rgb(243, 7, 153);
-}
-
+<<<<<<< HEAD
 #sceneload {
     width: 100%;
     height: 100%;
@@ -440,4 +430,24 @@ img{
     99% {
         width: 94%;
     }
+=======
+.box_out{
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+    align-content: center;
+    text-align: center;
+    vertical-align: middle;
+    z-index: 1000;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+}
+.box_in{
+    height: fit-content;
+    align-items: center;
+    color: rgb(247, 243, 0);
+    text-shadow:0 0 20px rgb(243, 7, 153);
+>>>>>>> d494d0b6bfe660e7e784c3e2ec5b8de6b31c724f
 }
