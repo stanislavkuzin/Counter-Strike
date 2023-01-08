@@ -1,25 +1,22 @@
 'use strict';
 
 class sceneTextMenu {
-    constructor () {
-        this.menu = document.createElement('div');
-        this.menu.classList.add('menuText');
-        //this.menu.setAttribute('id', 'menuWeapon');
-        scene.append(this.menu);
-        this.weapon1 = document.createElement('img');
-        //this.weapon1.setAttribute('src', arrWeapon[3]);
-        //this.weapon1.setAttribute('id', 'digl1');
-        this.weapon1.classList.add('inmenu-text')
-        this.menu.append(this.weapon1);
-        this.weapon2 = document.createElement('img');
-        //this.weapon2.setAttribute('src', arrWeapon[4]);
-        //this.weapon2.setAttribute('id', 'm4a12');
-        this.weapon2.classList.add('inmenu-text')
-        this.menu.append(this.weapon2);
-        this.weapon3 = document.createElement('img');
-        //this.weapon3.setAttribute('src', arrWeapon[5]);
-        //this.weapon3.setAttribute('id', 'ak473');
-        this.weapon3.classList.add('inmenu-text');
-        this.menu.append(this.weapon3);
+    constructor() {
+        this.menu = this.draw(localStorage);
+    }
+    draw(localStorage) {
+        let box = document.createElement('div');
+        box.classList.add('box_out');
+        let temp =  JSON.parse(localStorage.getItem('data'));
+       
+        for (const item in data) {
+                let box_in = document.createElement('div');
+                box_in.classList.add('box_in', 'inmenu-text');
+                box_in.textContent = temp[item];
+                box.append(box_in);
+        }
+        scene.append(box);
+        return box;
     }
 }
+

@@ -22,7 +22,6 @@ class CreateBot extends BotLiveBar {
         if (event.target.tagName !== 'IMG' || check <= 0) { 
             return;
         } else {
-            console.dir();
             if (this.liveLevel <= 0) {
                 clearTimeout(timerId);
                 audio.death.play();
@@ -35,6 +34,8 @@ class CreateBot extends BotLiveBar {
             setTimeout(() => document.querySelector('.blood').remove(), 400);
             this.liveLevel -= Math.floor(Math.random() * 20);
             event.target.previousSibling.setAttribute('value', this.liveLevel);
+            data["data-count_hits"] += 1;
+            localStorage.setItem('data', JSON.stringify(data))
         }
     }
 }

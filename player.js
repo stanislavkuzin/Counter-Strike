@@ -19,7 +19,7 @@ class Player {
     scene.append(this.player);
     body.addEventListener('mousemove', aim);
   }
-   huckPlayer = () => {
+  huckPlayer = () => {
     console.log('ki');
     const damage = document.createElement('div');
     damage.classList.add('bgred');
@@ -79,31 +79,31 @@ const newsGame = (event) => {
 }
 
 const changeGun = (event) => {
-    switch(event.code) {
-      case 'Digit1':
-        gun.src = arrWeapon[0];
-        audio.saveGun.play();
-        changeWeapon1();
-        //scene.addEventListener('click', hit);
-        //botOnLevel.damageBot();
-        break;
-    
-      case 'Digit2':
-        gun.src = arrWeapon[1];
-        audio.saveGun.play();
-        changeWeapon2();
-        //scene.addEventListener('click', hit);
-        //botOnLevel.damageBot();
-        break;
-  
-      case 'Digit3':  
-        gun.src = arrWeapon[2];
-        audio.saveGun.play();
-        changeWeapon3();
-        //scene.addEventListener('click', hit);
-        //botOnLevel.damageBot();
-        break;
-      }
+  switch (event.code) {
+    case 'Digit1':
+      gun.src = arrWeapon[0];
+      audio.saveGun.play();
+      changeWeapon1();
+      //scene.addEventListener('click', hit);
+      //botOnLevel.damageBot();
+      break;
+
+    case 'Digit2':
+      gun.src = arrWeapon[1];
+      audio.saveGun.play();
+      changeWeapon2();
+      //scene.addEventListener('click', hit);
+      //botOnLevel.damageBot();
+      break;
+
+    case 'Digit3':
+      gun.src = arrWeapon[2];
+      audio.saveGun.play();
+      changeWeapon3();
+      //scene.addEventListener('click', hit);
+      //botOnLevel.damageBot();
+      break;
+  }
 }
 
 const changeWeapon1 = () => {
@@ -134,6 +134,10 @@ const hit = (event) => {
   setTimeout(() => document.querySelector('.fire').remove(), 100);
   gun.style.marginBottom = '-40px';
   setTimeout(() => gun.style.marginBottom = '0px', 100);
+  data["data-count_shoots"] += 1;
+  localStorage.setItem('data', JSON.stringify(data))
+  console.log(data);
+  console.log(localStorage);
 }
 
 
