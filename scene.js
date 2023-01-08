@@ -77,7 +77,17 @@ const closeMap = (event) => {
     }
 }
 
-newGame.addEventListener('click', openNewGame); // new game button (LoadScrean)
+
+const start = () => {
+    countMap = 0;
+    sceneload.style.display = 'flex';
+    load.style.display = 'flex';
+    setTimeout(() => openNewGame(), 5000);
+    setTimeout(() => sceneload.style.display = 'none', 6000);
+    setTimeout(() => load.style.display = 'none', 5000);
+}
+
+newGame.addEventListener('click', start); // new game button (LoadScrean)
 
 
 function drawResults(localStorage) {
