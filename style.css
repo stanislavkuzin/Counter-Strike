@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Press Start 2P";
+    src: url(./font/PressStart2P-Regular.ttf);
+  }
+
 body, html {
     margin: 0;
     height: 100%;
@@ -146,12 +151,12 @@ a {
 #textstart {
     width: 500px;
     height: 190px;
-    border: 4px solid black;
+    border: 4px solid rgb(155, 197, 18);
     background-color: rgba(71, 71, 71, 0.548);
-    color: white;
+    color: rgb(222, 255, 5);
     text-align: center;
     font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Press Start 2P', cursive;
     padding-top: 90px;
 }
 
@@ -230,6 +235,10 @@ a {
     flex-direction: column;
 }
 
+#digl1 {
+    border: solid rgb(81, 255, 0);
+}
+
 .inmenu-weapon {
     width: 100px;
     height: 60px;
@@ -301,14 +310,21 @@ a {
 #textend {
     width: 500px;
     height: 190px;
-    border: 4px solid black;
+    border: 4px solid rgb(155, 197, 18);
     background-color: rgba(71, 71, 71, 0.548);
-    color: white;
+    color: rgb(222, 255, 5);
     text-align: center;
     font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-    padding-top: 90px;
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+#endgame {
+    cursor:  url(./img/aimgreen.png) 0 0, default;
+}
+
 img{
     /*-comment- ban drag & drop */
     -webkit-user-drag: none; 
@@ -325,4 +341,88 @@ img{
     color: rgb(247, 243, 0);
     text-shadow:0 0 20px rgb(243, 7, 153);
     cursor: pointer;
+}
+
+#sceneload {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    animation: 5s load alternate;
+    display: none;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes load {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#load {
+    width: 500px;
+    height: 150px;
+    border: 2px solid rgb(155, 197, 18);
+    background-color: rgb(50, 112, 50);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 25;
+}
+
+#loading {
+    width: 90%;
+    height: 30%;
+    background-color: grey;
+    border: 2px solid grey;
+}
+
+#loadline {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(182, 206, 25);
+    animation: 5s loadingline;
+}
+
+@keyframes loadingline {
+    0% {
+        width: 0%;
+    }
+    7% {
+        width: 7%;
+    }
+    21% {
+        width: 21%;
+    }
+    30% {
+        width: 30%;
+    }
+    35% {
+        width: 35%;
+    }
+    50% {
+        width: 50%;
+    }
+    80% {
+        width: 80%;
+    }
+    85% {
+        width: 85%;
+    }
+    88% {
+        width: 88%;
+    }
+    94% {
+        width: 94%;
+    }
+    99% {
+        width: 94%;
+    }
 }

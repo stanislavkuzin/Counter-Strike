@@ -46,7 +46,7 @@ const openNewGame = () => {
     setTimeout(console.log(observer), 3000);
     ;
     document.querySelector('.bot-duck').addEventListener('click', (event) => { observer.broadcast(event)}); // add Listener for observer
-    playerGame = new Player('./img/ak471.png');
+    playerGame = new Player(arrWeapon[0]);
     menuWeapon = new MenuWeapon();
     new sceneTextMenu;
     audio.audioMenu.pause();
@@ -74,7 +74,16 @@ const closeMap = (event) => {
     }
 }
 
-newGame.addEventListener('click', openNewGame); // new game button (LoadScrean)
+const start = () => {
+    countMap = 0;
+    sceneload.style.display = 'flex';
+    load.style.display = 'flex';
+    setTimeout(() => openNewGame(), 5000);
+    setTimeout(() => sceneload.style.display = 'none', 6000);
+    setTimeout(() => load.style.display = 'none', 5000);
+}
+
+newGame.addEventListener('click', start); // new game button (LoadScrean)
 
 
 

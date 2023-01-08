@@ -56,13 +56,15 @@ class Player {
 
 function gameOver() {
   endgame.style.display = 'flex';
-  textend.textContent = 'Вы проиграли! Нажать Backspace - начать заново. Esc - выйти в меню.';
+  textend.style.fontSize = '28px';
+  textend.textContent = 'Game over! Backspace - new game. Esc - exit menu.';
   body.addEventListener('keydown', newsGame);
 }
 
 function newLevel() {
   endgame.style.display = 'flex';
-  textend.textContent = 'New level';
+  textend.style.fontSize = '35px';
+  textend.textContent = 'Next level';
   setTimeout(() => endGame.style.display = 'none', 2000);
 }
 
