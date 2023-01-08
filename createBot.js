@@ -26,6 +26,8 @@ class CreateBot extends BotLiveBar {
                 clearTimeout(timerId);
                 audio.death.play();
                 event.target.parentNode.remove();
+                data["data-count_frag"] += 1;
+                localStorage.setItem('data', JSON.stringify(data))
                 newLevel();
                 setTimeout(() => level.delScene(), 1500);
                 setTimeout(() => openNewGame(), 1500);

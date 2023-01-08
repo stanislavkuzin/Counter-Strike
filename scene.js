@@ -12,7 +12,8 @@ let countMap = 0;
 let countBot = -1;
 let data = {
     'data-count_shoots': 0,
-    'data-count_hits': 0
+    'data-count_hits': 0,
+    'data-count_frag': 0
 }
 class Scene {
     constructor(value, mapLevel) {

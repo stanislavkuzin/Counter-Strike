@@ -136,8 +136,6 @@ const hit = (event) => {
   setTimeout(() => gun.style.marginBottom = '0px', 100);
   data["data-count_shoots"] += 1;
   localStorage.setItem('data', JSON.stringify(data))
-  console.log(data);
-  console.log(localStorage);
 }
 
 
