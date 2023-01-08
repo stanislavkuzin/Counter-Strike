@@ -46,7 +46,7 @@ const openNewGame = () => {
     setTimeout(console.log(observer), 3000);
     ;
     document.querySelector('.bot-duck').addEventListener('click', (event) => { observer.broadcast(event)}); // add Listener for observer
-    playerGame = new Player('./img/knife.png');
+    playerGame = new Player('./img/ak471.png');
     menuWeapon = new MenuWeapon();
     new sceneTextMenu;
     audio.audioMenu.pause();
@@ -55,7 +55,8 @@ const openNewGame = () => {
     audio.audioGame.loop = true;
     audio.gogogo.play();
     body.addEventListener('keydown', closeMap);
-    //scene.addEventListener('click', hit);
+    body.removeEventListener('keydown', newsGame);
+    scene.addEventListener('click', hit);
     startTime = setTimeout(() => playerGame.huckPlayer(), 1000);
 }
 
@@ -68,7 +69,8 @@ const closeMap = (event) => {
         audio.audioMenu.play();
         clearTimeout(timerId);
         clearTimeout(startTime);
-        body.removeEventListener('mousemove', aim)
+        body.removeEventListener('mousemove', aim);
+        endGame.style.display = 'none';
     }
 }
 

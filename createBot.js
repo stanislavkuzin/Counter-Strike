@@ -27,6 +27,9 @@ class CreateBot extends BotLiveBar {
                 clearTimeout(timerId);
                 audio.death.play();
                 event.target.parentNode.remove();
+                newLevel();
+                setTimeout(() => level.delScene(), 1500);
+                setTimeout(() => openNewGame(), 1500);
             }
             let blood = new Blood(event.x, event.y);
             setTimeout(() => document.querySelector('.blood').remove(), 400);

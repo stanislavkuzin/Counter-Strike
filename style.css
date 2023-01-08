@@ -130,6 +130,7 @@ a {
 
 #endgame {
     display: none;
+    z-index: 20;
 }
 
 .textfon {

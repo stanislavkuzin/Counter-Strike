@@ -4,6 +4,8 @@ let arrWeapon = ["./img/digl.png", "./img/m4a1.png", "./img/ak471.png", "./img/d
 let colWeapon;
 let timerId;
 let countLineBlue;
+let textEnd = document.getElementById('textend');
+let endGame = document.getElementById('endgame');
 
 class Player {
   constructor(weapon) {
@@ -45,8 +47,32 @@ class Player {
       //botOnLevel.removeEventListener('click', damageBot);
       //bot1.removeEventListener('click', huck);
       //level1.removeEventListener('click', hit);
-      //startOver();
+      countMap = 0;
+      gameOver();
     }
+  }
+}
+
+
+function gameOver() {
+  endgame.style.display = 'flex';
+  textend.textContent = 'Вы проиграли! Нажать Backspace - начать заново. Esc - выйти в меню.';
+  body.addEventListener('keydown', newsGame);
+}
+
+function newLevel() {
+  endgame.style.display = 'flex';
+  textend.textContent = 'New level';
+  setTimeout(() => endGame.style.display = 'none', 2000);
+}
+
+const newsGame = (event) => {
+  if (event.key !== 'Backspace') {
+    return;
+  } else {
+    level.delScene();
+    openNewGame();
+    endGame.style.display = 'none';
   }
 }
 
@@ -56,7 +82,7 @@ const changeGun = (event) => {
         gun.src = arrWeapon[0];
         audio.saveGun.play();
         changeWeapon1();
-        scene.addEventListener('click', hit);
+        //scene.addEventListener('click', hit);
         //botOnLevel.damageBot();
         break;
     
@@ -64,7 +90,7 @@ const changeGun = (event) => {
         gun.src = arrWeapon[1];
         audio.saveGun.play();
         changeWeapon2();
-        scene.addEventListener('click', hit);
+        //scene.addEventListener('click', hit);
         //botOnLevel.damageBot();
         break;
   
@@ -72,7 +98,7 @@ const changeGun = (event) => {
         gun.src = arrWeapon[2];
         audio.saveGun.play();
         changeWeapon3();
-        scene.addEventListener('click', hit);
+        //scene.addEventListener('click', hit);
         //botOnLevel.damageBot();
         break;
       }
