@@ -87,12 +87,12 @@ controlBut.addEventListener('click', () => {showControlWindow(controlsdiv)})
 controls(controlsdiv);
 function controls(controls) {
   let buttons = [
-    'Esc - exit of current geme and return main menu',
-   'BackSpace - move to the next level',
+    'Esc - exit of current game and return main menu',
+   'BackSpace - move to the new game',
     'Enter - return main menu',
-    '1 - choose a weapon',
-    '2 - choose a weapon',
-    '3 - choose a weapon'];
+    '1 - choose a weapon deagle',
+    '2 - choose a weapon m4a1',
+    '3 - choose a weapon ak47'];
   for (let i = 0; i < buttons.length; i += 1) {
     let button = document.createElement('div');
     button.textContent = buttons[i];

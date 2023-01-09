@@ -1,7 +1,7 @@
 'use strict';
 
 const bgScene = ['./img/map1.jpg', './img/map2.jpg', './img/map3.jpg', './img/map4.jpg', './img/map5.jpg'];
-const botName = ['bot1', 'bot2', 'bot3'];
+const botName = ['bot1', 'bot2', 'bot3', 'bot4', 'bot5'];
 
 let level;
 let botOnLevel;
@@ -36,7 +36,7 @@ const openNewGame = () => {
     } else {
         countMap += 1;
     }
-    if (countBot === 2) {
+    if (countBot === 4) {
         countBot = 0;
     } else {
         countBot += 1;
@@ -75,11 +75,13 @@ const closeMap = (event) => {
         clearTimeout(startTime);
         body.removeEventListener('mousemove', aim);
         endGame.style.display = 'none';
+        body.style.backgroundImage = 'url(./img/cs.jpg)';
     }
 }
 
 const start = () => {
     countMap = 0;
+    countBot = 0;
     levelDifficultyBot = 30;
     levelDifficultyPlayer = 30;
     sceneload.style.display = 'flex';
@@ -88,6 +90,7 @@ const start = () => {
     setTimeout(() => openNewGame(), 5000);
     setTimeout(() => sceneload.style.display = 'none', 6000);
     setTimeout(() => load.style.display = 'none', 5000);
+    setTimeout(() => body.style.backgroundImage = 'url()', 3000);
 }
 
 newGame.addEventListener('click', start);

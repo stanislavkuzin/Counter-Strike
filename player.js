@@ -30,6 +30,8 @@ class Player {
   }
 
   damagePlayer = () => {
+    this.live.liveLevel -= Math.floor(Math.random() * levelDifficultyPlayer);
+      this.live.unit.setAttribute('value', this.live.liveLevel);
     if (this.live.liveLevel <= 0) {
       gun.style.display = 'none';
       audio.death.play();
@@ -38,9 +40,6 @@ class Player {
       botOnLevel.offDamageBot();
       countMap = 0;
       gameOver();
-    } else {
-      this.live.liveLevel -= Math.floor(Math.random() * levelDifficultyPlayer);
-      this.live.unit.setAttribute('value', this.live.liveLevel);
     }
   }
 }
